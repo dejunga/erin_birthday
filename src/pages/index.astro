@@ -16,7 +16,7 @@ const metadata = {
   <Hero2
     title="Erin nam slavi 1. rodendan!"
     actions={[
-      { variant: 'primary', text: 'Potvrdite svoj dolazak', href: 'javascript:openModal()', icon: 'tabler:square-rounded-arrow-right' },
+      { variant: 'primary', text: 'Potvrdite svoj dolazak', href: 'https://docs.google.com/forms/d/e/1FAIpQLSchWKPnVGe3XOQTuoYGyKvKOmZ0n3assBzqeT75p4kVbAWu6g/viewform', target: '_blank', icon: 'tabler:square-rounded-arrow-right' },
     ]}
     image={{
       src: erinImage,
@@ -61,49 +61,5 @@ const metadata = {
     </div>
   </section>
 
-  <!-- Modal za Google Form -->
-  <div id="rsvpModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-    <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-hidden relative">
-      <button onclick="window.closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-10">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSchWKPnVGe3XOQTuoYGyKvKOmZ0n3assBzqeT75p4kVbAWu6g/viewform?embedded=true"
-        width="100%" 
-        height="617" 
-        style="border:0;"
-        marginheight="0" 
-        marginwidth="0">
-        Učitavanje…
-      </iframe>
-    </div>
-  </div>
 
 </Layout>
-
-<script is:inline>
-  window.openModal = function() {
-    document.getElementById('rsvpModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-  }
-
-  window.closeModal = function() {
-    document.getElementById('rsvpModal').classList.add('hidden');
-    document.body.style.overflow = 'auto';
-  }
-
-  // Čekaj da se DOM učita
-  document.addEventListener('DOMContentLoaded', function() {
-    // Zatvori modal kad se klikne van njega
-    const modal = document.getElementById('rsvpModal');
-    if (modal) {
-      modal.addEventListener('click', function(e) {
-        if (e.target === this) {
-          window.closeModal();
-        }
-      });
-    }
-  });
-</script>
