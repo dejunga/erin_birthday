@@ -14,9 +14,15 @@ const metadata = {
   <!-- Hero2 Widget ******************* -->
 
   <Hero2
-    title="Erin nam slavi 1. rodendan!"
+    title="Erin nam slavi 1. rođendan!"
     actions={[
-      { variant: 'primary', text: 'Potvrdite svoj dolazak', href: 'https://docs.google.com/forms/d/e/1FAIpQLSchWKPnVGe3XOQTuoYGyKvKOmZ0n3assBzqeT75p4kVbAWu6g/viewform', target: '_blank', icon: 'tabler:square-rounded-arrow-right' },
+      {
+        variant: 'primary',
+        text: 'Potvrdite svoj dolazak',
+        href: 'https://docs.google.com/forms/d/e/1FAIpQLSchWKPnVGe3XOQTuoYGyKvKOmZ0n3assBzqeT75p4kVbAWu6g/viewform',
+        target: '_blank',
+        icon: 'tabler:square-rounded-arrow-right',
+      },
     ]}
     image={{
       src: erinImage,
@@ -28,7 +34,6 @@ const metadata = {
   <!-- Google Maps sekcija -->
   <section class="py-4 md:py-20 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      
       <!-- Dugme za navigaciju -->
       <div class="text-center mb-6">
         <a
@@ -37,12 +42,15 @@ const metadata = {
           class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary rounded-lg hover:bg-primary-600 transition-colors"
         >
           <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+            <path
+              fill-rule="evenodd"
+              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+              clip-rule="evenodd"></path>
           </svg>
           ODVEDI ME DO MJESTA SLAVLJA
         </a>
       </div>
-      
+
       <!-- Google Maps iframe -->
       <div class="mb-8">
         <iframe
@@ -53,13 +61,10 @@ const metadata = {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="rounded-lg">
+          class="rounded-lg"
+        >
         </iframe>
       </div>
-      
-      
     </div>
   </section>
-
-
 </Layout>
