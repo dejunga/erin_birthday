@@ -27,9 +27,34 @@ const metadata = {
     image={{
       src: erinImage,
       alt: 'Erin slavi rođendan',
-      class: 'object-contain max-h-96 md:max-h-screen w-full',
+      class: 'object-contain max-h-96 md:max-h-screen w-auto mx-auto',
     }}
   />
+
+  <!-- Countdown sekcija -->
+  <section class="py-2 md:py-4 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">Još ostalo do slavlja:</h2>
+      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-md mx-auto">
+        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+          <div class="text-2xl md:text-3xl font-bold" id="days">00</div>
+          <div class="text-sm uppercase tracking-wide">Dana</div>
+        </div>
+        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+          <div class="text-2xl md:text-3xl font-bold" id="hours">00</div>
+          <div class="text-sm uppercase tracking-wide">Sati</div>
+        </div>
+        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+          <div class="text-2xl md:text-3xl font-bold" id="minutes">00</div>
+          <div class="text-sm uppercase tracking-wide">Minuta</div>
+        </div>
+        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+          <div class="text-2xl md:text-3xl font-bold" id="seconds">00</div>
+          <div class="text-sm uppercase tracking-wide">Sekundi</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Google Maps sekcija -->
   <section class="py-4 md:py-20 relative z-10">
@@ -68,3 +93,39 @@ const metadata = {
     </div>
   </section>
 </Layout>
+
+<script>
+  // Datum slavlja: 04.10.2025 u 14:00
+  const targetDate = new Date('2025-10-04T14:00:00').getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+      // Ako je slavlje prošlo
+      document.getElementById('countdown').innerHTML =
+        '<div class="text-2xl font-bold text-primary">Slavlje je počelo! 🎉</div>';
+      return;
+    }
+
+    // Računanje vremena
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Ažuriranje HTML elemenata
+    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+  }
+
+  // Pokretanje countdown-a kad se stranica učita
+  document.addEventListener('DOMContentLoaded', function () {
+    updateCountdown();
+    // Ažuriranje svake sekunde
+    setInterval(updateCountdown, 1000);
+  });
+</script>
