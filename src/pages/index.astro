@@ -39,19 +39,19 @@ const metadata = {
         <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Preostalo vrijeme do slavlja:</h2>
         <div id="countdown" class="grid grid-cols-4 gap-2 max-w-md mx-auto">
           <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-            <div class="text-2xl md:text-3xl font-bold" id="days">00</div>
+            <div class="text-2xl md:text-3xl font-bold countdown-number" id="days">00</div>
             <div class="text-sm uppercase tracking-wide">Dana</div>
           </div>
           <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-            <div class="text-2xl md:text-3xl font-bold" id="hours">00</div>
+            <div class="text-2xl md:text-3xl font-bold countdown-number" id="hours">00</div>
             <div class="text-sm uppercase tracking-wide">Sati</div>
           </div>
           <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-            <div class="text-2xl md:text-3xl font-bold" id="minutes">00</div>
+            <div class="text-2xl md:text-3xl font-bold countdown-number" id="minutes">00</div>
             <div class="text-sm uppercase tracking-wide">Minuta</div>
           </div>
           <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-            <div class="text-2xl md:text-3xl font-bold" id="seconds">00</div>
+            <div class="text-2xl md:text-3xl font-bold countdown-number" id="seconds">00</div>
             <div class="text-sm uppercase tracking-wide">Sekundi</div>
           </div>
         </div>
@@ -119,16 +119,24 @@ const metadata = {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Ažuriranje HTML elemenata
+    // Ažuriranje HTML elemenata s animacijom
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
 
-    if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
-    if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
-    if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
-    if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    function updateWithGlow(element, newValue) {
+      if (element && element.textContent !== newValue) {
+        element.textContent = newValue;
+        element.classList.add('updated');
+        setTimeout(() => element.classList.remove('updated'), 600);
+      }
+    }
+
+    if (daysEl) updateWithGlow(daysEl, days.toString().padStart(2, '0'));
+    if (hoursEl) updateWithGlow(hoursEl, hours.toString().padStart(2, '0'));
+    if (minutesEl) updateWithGlow(minutesEl, minutes.toString().padStart(2, '0'));
+    if (secondsEl) updateWithGlow(secondsEl, seconds.toString().padStart(2, '0'));
   }
 
   // Pokretanje countdown-a kad se stranica učita
