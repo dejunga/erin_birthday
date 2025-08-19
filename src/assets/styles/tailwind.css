@@ -85,6 +85,49 @@
       text-shadow: none;
     }
   }
+
+  /* Image preloader */
+  .image-preloader {
+    position: relative;
+    display: inline-block;
+  }
+
+  .preloader-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(217, 70, 239, 0.2);
+    border-left: 4px solid #d946ef;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 2;
+  }
+
+  .preloader-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
+    border-radius: inherit;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .preloader-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
 }
 
 #header.scroll > div:first-child {

@@ -139,10 +139,39 @@ const metadata = {
     if (secondsEl) updateWithGlow(secondsEl, seconds.toString().padStart(2, '0'));
   }
 
+  // Image preloader funkcionalnost
+  function handleImagePreloader() {
+    const heroImage = document.getElementById('hero-image');
+    const preloaderOverlay = document.getElementById('image-preloader-overlay');
+    
+    if (heroImage && preloaderOverlay) {
+      // Provjeri da li je slika već učitana
+      if (heroImage.complete && heroImage.naturalHeight !== 0) {
+        // Slika je već učitana
+        preloaderOverlay.classList.add('hidden');
+      } else {
+        // Slušaj event kada se slika učita
+        heroImage.addEventListener('load', function() {
+          setTimeout(() => {
+            preloaderOverlay.classList.add('hidden');
+          }, 200); // Kratka pauza za smooth prijelaz
+        });
+        
+        // Backup u slučaju greške
+        heroImage.addEventListener('error', function() {
+          preloaderOverlay.classList.add('hidden');
+        });
+      }
+    }
+  }
+
   // Pokretanje countdown-a kad se stranica učita
   document.addEventListener('DOMContentLoaded', function () {
     updateCountdown();
     // Ažuriranje svake sekunde
     setInterval(updateCountdown, 1000);
+    
+    // Pokretanje image preloader
+    handleImagePreloader();
   });
 </script>
