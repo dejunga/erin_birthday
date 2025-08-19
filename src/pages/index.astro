@@ -31,65 +31,68 @@ const metadata = {
     }}
   />
 
-  <!-- Countdown sekcija -->
-  <section class="py-4 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Preostalo vrijeme do slavlja:</h2>
-      <div id="countdown" class="grid grid-cols-4 gap-2 max-w-md mx-auto">
-        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-          <div class="text-2xl md:text-3xl font-bold" id="days">00</div>
-          <div class="text-sm uppercase tracking-wide">Dana</div>
+  <!-- Countdown i Google Maps sekcija -->
+  <section class="pt-2 pb-8 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      
+      <!-- Countdown dio -->
+      <div class="text-center">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Preostalo vrijeme do slavlja:</h2>
+        <div id="countdown" class="grid grid-cols-4 gap-2 max-w-md mx-auto">
+          <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+            <div class="text-2xl md:text-3xl font-bold" id="days">00</div>
+            <div class="text-sm uppercase tracking-wide">Dana</div>
+          </div>
+          <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+            <div class="text-2xl md:text-3xl font-bold" id="hours">00</div>
+            <div class="text-sm uppercase tracking-wide">Sati</div>
+          </div>
+          <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+            <div class="text-2xl md:text-3xl font-bold" id="minutes">00</div>
+            <div class="text-sm uppercase tracking-wide">Minuta</div>
+          </div>
+          <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
+            <div class="text-2xl md:text-3xl font-bold" id="seconds">00</div>
+            <div class="text-sm uppercase tracking-wide">Sekundi</div>
+          </div>
         </div>
-        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-          <div class="text-2xl md:text-3xl font-bold" id="hours">00</div>
-          <div class="text-sm uppercase tracking-wide">Sati</div>
-        </div>
-        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-          <div class="text-2xl md:text-3xl font-bold" id="minutes">00</div>
-          <div class="text-sm uppercase tracking-wide">Minuta</div>
-        </div>
-        <div class="bg-primary text-white rounded-lg p-4 shadow-lg text-center">
-          <div class="text-2xl md:text-3xl font-bold" id="seconds">00</div>
-          <div class="text-sm uppercase tracking-wide">Sekundi</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Google Maps sekcija -->
-  <section class="py-4 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <!-- Dugme za navigaciju -->
-      <div class="text-center mb-6">
-        <a
-          href="https://maps.app.goo.gl/dFdSenS7happZUoj9"
-          target="_blank"
-          class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary rounded-lg hover:bg-primary-600 transition-colors"
-        >
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path
-              fill-rule="evenodd"
-              d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-              clip-rule="evenodd"></path>
-          </svg>
-          ODVEDI ME DO MJESTA SLAVLJA
-        </a>
       </div>
 
-      <!-- Google Maps iframe -->
-      <div class="mb-8">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.978413826508!2d17.12244860140543!3d45.70388850824934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767bb1849a43a27%3A0xba4623ad6a5f0ba2!2sGrbavac%2041%2C%2043290%2C%20Grbavac!5e0!3m2!1shr!2shr!4v1755384555563!5m2!1shr!2shr"
-          width="100%"
-          height="400"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="rounded-lg"
-        >
-        </iframe>
+      <!-- Google Maps dio -->
+      <div>
+        <!-- Dugme za navigaciju -->
+        <div class="text-center mb-6">
+          <a
+            href="https://maps.app.goo.gl/dFdSenS7happZUoj9"
+            target="_blank"
+            class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-white bg-primary rounded-lg hover:bg-primary-600 transition-colors"
+          >
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clip-rule="evenodd"></path>
+            </svg>
+            ODVEDI ME DO MJESTA SLAVLJA
+          </a>
+        </div>
+
+        <!-- Google Maps iframe -->
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1903.978413826508!2d17.12244860140543!3d45.70388850824934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767bb1849a43a27%3A0xba4623ad6a5f0ba2!2sGrbavac%2041%2C%2043290%2C%20Grbavac!5e0!3m2!1shr!2shr!4v1755384555563!5m2!1shr!2shr"
+            width="100%"
+            height="400"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg"
+          >
+          </iframe>
+        </div>
       </div>
+      
     </div>
   </section>
 </Layout>
